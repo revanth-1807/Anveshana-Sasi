@@ -347,4 +347,4 @@ let currentPage = 0;
 nextBtn.addEventListener("click", ()=>{ if(currentPage<pages.length-1) showPage(currentPage+1); });
 prevBtn.addEventListener("click", ()=>{ if(currentPage>0) showPage(currentPage-1); });
 
-gsap.to("#introName", {opacity:1, duration:50, ease:"power2.out"});
+gsap.to("#introName", {opacity:1, duration:30, ease:"power2.out"});
