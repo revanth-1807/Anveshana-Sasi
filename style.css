@@ -172,7 +172,6 @@ body {
   box-shadow: 0 0 30px rgba(99,102,241,0.9);
 }
 
-
 .page {
   position: absolute;
   inset: 0;
@@ -227,8 +226,6 @@ body {
   background: linear-gradient(145deg, #1f2435, #161a2c);
 }
 
-
-
 .bookControls {
   opacity: 0;  /* hidden initially */
   display: flex;
@@ -239,13 +236,11 @@ body {
   margin-top: 20px;
 }
 
-
 @media (max-width: 480px) {
   .bookWrapper {
     transform: scale(0.92);
   }
 }
-
 
 #bookSection {
   min-height: 100vh;
@@ -255,7 +250,6 @@ body {
   justify-content: top;
    /* VERTICAL CENTER */      /* space for navbar */
 }
-
 
 .bookControls.hidden {
   opacity: 0;
@@ -269,13 +263,22 @@ section {
 }
 
 
-.page p {
-  margin-top: 20px;
-}
+
 
 p{
     color: white;
 }
+
+.page p {
+  margin-top: 18px;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  letter-spacing: 0.3px;
+  text-align: left;      /* ✅ FIX */
+  font-weight: 400;
+}
+
 
 .head{
   color:#82c0ca
@@ -301,7 +304,6 @@ button {
   font-weight: 600;
 }
 
-
 .page.active {
   opacity: 1;
   transform: translateX(0);
@@ -316,8 +318,6 @@ section {
   box-shadow: 0 40px 80px rgba(0,0,0,0.8);
   transform-origin: left center;
 }
-
-
 
 /* Navbar */
 /* Navbar */
@@ -344,7 +344,6 @@ section {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
-
 
 /* ================= TIMELINE SECTION ================= */
 
@@ -462,32 +461,33 @@ section {
   transform: translateY(0);
 }
 
-/* ===== MOBILE (STILL ALTERNATING) ===== */
 @media (max-width: 600px) {
 
+  /* Hide center line */
   .timelineContainer::before {
-    left: 50%;
+    display: none;
   }
 
+  /* Hide the dot */
+  .timelineItem .dot {
+    display: none;
+  }
+
+  /* Center items vertically */
   .timelineItem {
-    margin: 60px 0;
+    margin: 40px 0;
+    justify-content: center !important;
+    padding: 0 !important;
   }
 
-  .timelineItem:nth-child(odd) {
-    justify-content: flex-end;
-    padding-right: 40px;
-  }
-
-  .timelineItem:nth-child(even) {
-    justify-content: flex-start;
-    padding-left: 40px;
-  }
-
+  /* Center content */
   .timelineItem .content {
     width: 180px;
     height: 180px;
+    margin: 0 auto;
   }
 }
+
 
 #timelineSection {
   background: linear-gradient(145deg, #111827, #0f172a);
