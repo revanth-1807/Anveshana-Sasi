@@ -32,28 +32,17 @@ gsap.to(".bookWrapper", {
 });
 
 gsap.to("#bookSection", {
-  opacity:1,
-  y:0,
-  duration:0.2,
-  ease:"power2.out",
+  opacity: 1,
+  y: 0,
+  duration: 0.2,
+  ease: "power2.out",
   scrollTrigger: {
-    trigger:"#bookWrapper",
-    start:"top 90%", // when top of book section reaches 80% of viewport
+    trigger: ".bookWrapper",
+    start: "top 90%", // when top of book section reaches 80% of viewport
   }
 });
 
-openBookBtn.addEventListener("click", () => {
-  gsap.to(cover, {
-    rotateY: -120,
-    opacity: 0,
-    duration: 1,
-    ease: "power4.inOut",
-    onComplete: () => {
-      cover.style.display = "none";
-      showPage(0); // show About page
-    }
-  });
-});
+
 
 gsap.to(".bookControls", {
   scrollTrigger: {
@@ -75,155 +64,125 @@ document.addEventListener("DOMContentLoaded", () => {
   // OPEN BOOK
   openBookBtn.addEventListener("click", () => {
     gsap.to(bookControls, {
-    opacity: 1,
-    visibility: "visible",
-    y: 0,
-    duration: 1,
-    ease: "power2.out"
+      opacity: 1,
+      visibility: "visible",
+      y: 0,
+      duration: 20,
+      ease: "power2.out"
+    });
+
+    // Animate and hide the cover
+    gsap.to(cover, {
+      rotateY: -120,
+      opacity: 0,
+      duration: 1,
+      ease: "power4.inOut",
+      onComplete: () => {
+        cover.style.display = "none";
+        showPage(0); // show first page
+      }
+    });
   });
 
-  // Animate and hide the cover
-  gsap.to(cover, {
-    rotateY: -120,
-    opacity: 0,
-    duration: 1,
-    ease: "power4.inOut",
-    onComplete: () => {
-      cover.style.display = "none";
-      showPage(0); // show first page
-    }
+
+  // s.toArray(".timelineItem").forEach(item => {
+
+
+
+
+  const coverObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible'); // triggers slow fade-in
+        coverObserver.unobserve(entry.target); // only once
+      }
+    });
+  }, {
+    threshold: 0.3
   });
-});
 
+  coverObserver.observe(bookCover);
 
-// s.toArray(".timelineItem").forEach(item => {
+  // Select all prize cards
+  const prizeCards = document.querySelectorAll('.prizeCard');
 
-
-
-
-const coverObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible'); // triggers slow fade-in
-      coverObserver.unobserve(entry.target); // only once
-    }
+  const prizeObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        prizeObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2
   });
-}, {
-  threshold: 0.3
-});
 
-coverObserver.observe(bookCover);
-
-// Select all prize cards
-const prizeCards = document.querySelectorAll('.prizeCard');
-
-const prizeObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      prizeObserver.unobserve(entry.target);
-    }
+  // Apply observer to each card with staggered delay
+  prizeCards.forEach((card, index) => {
+    prizeObserver.observe(card);
+    card.style.transitionDelay = `${index * 0.15}s`; // stagger effect
   });
-}, {
-  threshold: 0.2
-});
-
-// Apply observer to each card with staggered delay
-prizeCards.forEach((card, index) => {
-  prizeObserver.observe(card);
-  card.style.transitionDelay = `${index * 0.15}s`; // stagger effect
-});
 
 
-document.querySelectorAll(".timelineItem").forEach((item, i) => {
-  gsap.to(item, {
-    opacity: 1,
-    y: 0,
-    duration: 0.9,
-    delay: i * 0.15,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: item,
-      start: "top 80%",
-    }
+  document.querySelectorAll(".timelineItem").forEach((item, i) => {
+    gsap.to(item, {
+      opacity: 1,
+      y: 0,
+      duration: 0.9,
+      delay: i * 0.15,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 80%",
+      }
+    });
   });
-});
 
-const faqItems = document.querySelectorAll('.faqItem');
+  const faqItems = document.querySelectorAll('.faqItem');
 
-faqItems.forEach(item => {
-  // Click to toggle answer
-  item.querySelector('.question').addEventListener('click', () => {
-    item.classList.toggle('active');
+  faqItems.forEach(item => {
+    // Click to toggle answer
+    item.querySelector('.question').addEventListener('click', () => {
+      item.classList.toggle('active');
+    });
   });
-});
 
-const items = document.querySelectorAll('.timelineItem');
+  const items = document.querySelectorAll('.timelineItem');
 
-// const observer = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       entry.target.classList.add('active');
-//     }
-//   });
-// }, { threshold: 0.3 });
+  // const observer = new IntersectionObserver(entries => {
+  //   entries.forEach(entry => {
+  //     if (entry.isIntersecting) {
+  //       entry.target.classList.add('active');
+  //     }
+  //   });
+  // }, { threshold: 0.3 });
 
-document.querySelectorAll(".faqItem").forEach(item => {
+  document.querySelectorAll(".faqItem").forEach(item => {
     item.addEventListener("click", () => {
       item.classList.toggle("active");
     });
   });
 
-// Scroll animation: questions appear
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
+  // Scroll animation: questions appear
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
 
-faqItems.forEach(item => observer.observe(item));
+  faqItems.forEach(item => observer.observe(item));
 
 
   function showPage(index) {
-  pages.forEach((p, i) => {
-    if (index === 4) {
-  gsap.to("#registerBtn", {
-    scale: 1,
-    opacity: 1,
-    duration: 0.8,
-    ease: "back.out(1.7)",
-    delay: 0.3
-  });
-}
-if (index !== 4) {
-  gsap.set("#registerBtn", { scale: 0.8, opacity: 0 });
-}
 
-    if(index === 1){  // Domains page
-  const domainItems = document.querySelectorAll("#domainList li");
-  gsap.to(domainItems, {
-    opacity: 1,
-    y: 0,
-    duration: 4,
-    stagger: 0.3,  // appear one by one
-    ease: "power2.out"
-  });
-}
-if(i==2) {
-  const domainItems = document.querySelectorAll("#domainList1 li");
-  gsap.to(domainItems, {
-    opacity: 1,
-    y: 0,
-    duration: 4,
-    stagger: 0.3,  // appear one by one
-    ease: "power2.out"
-  });
-}
+  /* ===== PAGE FLIP LOGIC ONLY ===== */
+  pages.forEach((p, i) => {
+
     if (i < index) {
       gsap.to(p, { rotateY: -180, opacity: 0, duration: 0.8 });
-    } 
+    }
     else if (i === index) {
       p.classList.add("active");
       gsap.fromTo(
@@ -238,37 +197,57 @@ if(i==2) {
     }
   });
 
+  /* ===== REGISTER BUTTON ===== */
+  if (index === 3) {
+    gsap.to("#registerBtn", {
+      scale: 1,
+      opacity: 1,
+      duration: 0.8,
+      ease: "back.out(1.7)",
+      delay: 0.3
+    });
+  } else {
+    gsap.set("#registerBtn", { scale: 0.8, opacity: 0 });
+  }
+
+  /* ===== PAGE-SPECIFIC LIST ANIMATIONS ===== */
+  requestAnimationFrame(() => {
+
+    if (index === 1) {
+      animateList("#domainList li");
+    }
+
+    if (index === 2) {
+      animateList("#domainList1 li");
+    }
+
+  });
+
   currentPage = index;
   indicator.textContent = `${index + 1} / ${pages.length}`;
 }
 
+function animateList(selector) {
+  const items = document.querySelectorAll(selector);
+  if (!items.length) return;
 
+  gsap.killTweensOf(items);
+  gsap.set(items, { opacity: 0, y: 30 });
 
-
-
-
-gotoTimelineBtn.addEventListener("click", () => {
-  const timelineSection = document.getElementById("timelineSection");
-  timelineSection.scrollIntoView({ behavior: "smooth" });
-});
-
-
-  nextBtn.addEventListener("click", () => {
-    if (currentPage < pages.length - 1) {
-      showPage(currentPage + 1);
-    }
+  gsap.to(items, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    stagger: 0.3,
+    ease: "power2.out"
   });
+}
 
-  prevBtn.addEventListener("click", () => {
-    if (currentPage > 0) {
 
-      showPage(currentPage - 1);
-    }
-  });
+  nextBtn.addEventListener("click", ()=>{ if(currentPage<pages.length-1) showPage(currentPage+1); });
+prevBtn.addEventListener("click", ()=>{ if(currentPage>0) showPage(currentPage-1); });
 
 });
-
-
 
 function goToIntro() {
   document.getElementById("introPage").scrollIntoView({
@@ -288,18 +267,16 @@ document.querySelectorAll("#navLinks a").forEach(link => {
 });
 
 // Animate timeline items on scroll
-
-
 // Animate prize cards on scroll
 document.querySelectorAll(".prizeCard").forEach(card => {
   gsap.to(card, {
-    opacity:1,
-    y:0,
+    opacity: 1,
+    y: 0,
     // duration:0.2,
-    ease:"power2.out",
+    ease: "power2.out",
     scrollTrigger: {
       trigger: card,
-      start:"top 100%",
+      start: "top 100%",
     }
   });
 });
@@ -309,15 +286,15 @@ document.querySelectorAll(".faqItem").forEach(item => {
   const answer = item.querySelector(".answer");
   item.addEventListener("click", () => {
     const isOpen = answer.style.height && answer.style.height !== "0px";
-    
+
     if (isOpen) {
       // Close
-      gsap.to(answer, {height:0, opacity:0, duration:0.5, ease:"power2.out"});
+      gsap.to(answer, { height: 0, opacity: 0, duration: 0.5, ease: "power2.out" });
     } else {
       // Open
-      gsap.set(answer, {height:"auto"});
-      gsap.from(answer, {height:0, opacity:0, duration:0.5, ease:"power2.out"});
-      gsap.to(answer, {height:answer.scrollHeight, opacity:1, duration:0.5, ease:"power2.out"});
+      gsap.set(answer, { height: "auto" });
+      gsap.from(answer, { height: 0, opacity: 0, duration: 0.5, ease: "power2.out" });
+      gsap.to(answer, { height: answer.scrollHeight, opacity: 1, duration: 0.5, ease: "power2.out" });
     }
   });
 });
@@ -325,13 +302,13 @@ document.querySelectorAll(".faqItem").forEach(item => {
 // Animate contact cards and form on scroll
 document.querySelectorAll("#contactSection .contactCard, #contactSection .contactForm").forEach(item => {
   gsap.from(item, {
-    opacity:0,
-    y:50,
-    duration:0.8,
-    ease:"power2.out",
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    ease: "power2.out",
     scrollTrigger: {
-      trigger:item,
-      start:"top 85%",
+      trigger: item,
+      start: "top 85%",
     }
   });
 });
@@ -344,7 +321,6 @@ let currentPage = 0;
 // Show page functio
 
 // Next / Previous buttons
-nextBtn.addEventListener("click", ()=>{ if(currentPage<pages.length-1) showPage(currentPage+1); });
-prevBtn.addEventListener("click", ()=>{ if(currentPage>0) showPage(currentPage-1); });
+
 
 gsap.to("#introName", {opacity:1, duration:7, ease:"power2.out"});

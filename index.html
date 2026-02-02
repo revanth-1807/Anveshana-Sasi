@@ -1,268 +1,277 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Hackathon Intro + Book</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
-</head>
-<body>
- <nav id="navbar">
-  <div class="navLogo">ANVESHANA</div>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hackathon Intro + Book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/ScrollTrigger.min.js"></script>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="navLogo">ANVESHANA</div>
 
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <ul id="navLinks">
-    <li><a href="#introPage">Home</a></li>
-    <li><a href="#bookSection">Book</a></li>
-    <li><a href="#timelineSection">Timeline</a></li>
-    <li><a href="#prizesSection">Prizes</a></li>
-    <li><a href="#faqSection">FAQ</a></li>
-    <li><a href="#contactSection">Contact</a></li>
-  </ul>
-</nav>
-
-  <!-- Intro Section -->
-  <section id="introPage">
-    <img src="logo.png" alt="Hackathon Logo" class="backgroundLogo">
-    <h1 id="introName">ANVESHANA</h1>
-  </section>
-
-  <!-- Book Section -->
-  <section id="bookSection">
-      <h2 class="sectionTitle">Inside the Hackathon</h2>
-    <div class="bookWrapper">
-  <div class="bookContainer">
-
-    <!-- BOOK COVER -->
-
-    <div class="book-cover" id="cover" >
-      <img src="logo1.png" width="150px" height="100px" ><br>
-      <h1 class="cover-title">HACKATHON 2026</h1>
-      <p class="cover-tagline">Innovate • Build • Compete</p><br>
-      <button id="openBook">Open Book</button>
-    </div>
-
-    <!-- BOOK PAGES -->
-    <div class="page" data-page="0">
-      <h2 class="head">About</h2>
-      <p>Anveshana 2026 is a national-level hackathon where innovators come together to build creative tech solutions in domains like AI, Cybersecurity, and Blockchain. It's a platform to collaborate, compete, and showcase your ideas, with guidance from mentors and exciting prizes up for grabs.</p>
-    </div>
-
-    <div class="page" data-page="1">
-  <h2 class="head">Domains</h2>
-  <ul id="domainList">
-    <li>Web Applications</li>
-    <li>Android Applications</li>
-    <li>AI Models</li>
-    <li>Quantum Computing</li>
-    <li>Cybersecurity</li>
-    <li>IoT Systems</li>
-    <li>Blockchains</li>
-    <li>Others</li>
-  </ul>
-</div>
-
-
-    <div class="page" data-page="2">
-      <h2 class="head">Rules</h2>
-      <ul id="domainList1">
-    <li>Team contains minimun 3 members</li>
-    <li>No of persons per team wont exceeds 5</li>
-    <li>Need to follow Timeline</li>
-  </ul>
-    </div>
-
-   <div class="page" data-page="3">
-  <h2 class="head">Timeline</h2>
-  <button id="gotoTimeline">Go to Timeline</button>
-</div>
-
-
-<div class="page" data-page="4">
-
-  <div class="registerBtnWrapper">
-    <a 
-      href="https://forms.gle/YOUR_FORM_LINK" 
-      target="_blank" 
-      id="registerBtn"
-    >
-      Register Now
-    </a>
-  </div>
-</div>
-
-  </div>
-  </div>
-  <div class="bookControls">
-    <button id="prevBtn">Prev</button>
-    <span id="pageIndicator">0 / 5</span>
-    <button id="nextBtn">Next</button>
-  </div>
-</section>
-
-  <!-- Timeline Section -->
-<section id="timelineSection">
-  <h2 class="sectionTitle">Timeline</h2>
-  <div class="timelineContainer">
-    <div class="timelineItem">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>Registration Opens</h3>
-        <p>15th Feb 2026</p>
-      </div>
-    </div>
-
-    <div class="timelineItem">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>Idea Submission</h3>
-        <p>1st March 2026</p>
-      </div>
-    </div>
-
-    <div class="timelineItem">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>Prelims</h3>
-        <p>15th March 2026</p>
-      </div>
-    </div>
-
-    <div class="timelineItem">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>Finals</h3>
-        <p>31st March 2026</p>
-      </div>
-    </div>
-
-    <div class="timelineItem">
-      <div class="dot"></div>
-      <div class="content">
-        <h3>Winner Announcement</h3>
-        <p>1st April 2026</p>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- Prizes Section -->
-<section id="prizesSection">
-  <h2 class="sectionTitle">Prizes & Rewards</h2>
-  <div class="prizesContainer">
-
-    <!-- Emerging Innovators -->
-    <div class="prizeCategory" >
-      <h3>Emerging Innovators</h3>
-      <div class="prizeCard gold">
-        <div class="medal">🥇</div>
-        <h4>1st Place</h4>
-        <p>₹25,000/- Cash + Certificate</p>
-      </div>
-      <div class="prizeCard silver">
-        <div class="medal">🥈</div>
-        <h4>2nd Place</h4>
-        <p>₹15,000/- Cash + Certificate</p>
-      </div>
-      <div class="prizeCard bronze">
-        <div class="medal">🥉</div>
-        <h4>3rd Place</h4>
-        <p>₹10,000/- Cash + Certificate</p>
-      </div>
-    </div>
-
-    <!-- Software Wizards -->
-    <div class="prizeCategory">
-      <h3>Software Wizards</h3>
-      <div class="prizeCard gold">
-        <div class="medal">🥇</div>
-        <h4>1st Place</h4>
-        <p>₹25,000/- Cash + Certificate</p>
-      </div>
-      <div class="prizeCard silver">
-        <div class="medal">🥈</div>
-        <h4>2nd Place</h4>
-        <p>₹15,000/- Cash + Certificate</p>
-      </div>
-      <div class="prizeCard bronze">
-        <div class="medal">🥉</div>
-        <h4>3rd Place</h4>
-        <p>₹10,000/- Cash + Certificate</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- FAQ Section -->
-<section id="faqSection">
-  <h2 class="sectionTitle">Frequently Asked Questions</h2>
-  <div class="faqContainer">
-    <div class="faqItem">
-      <div class="question">📝 What is the  team size?</div>
-      <div class="answer">3-5 members per team are allowed.</div>
-    </div>
-
-    <div class="faqItem">
-      <div class="question">💡 Are participants allowed to submit multiple ideas?</div>
-      <div class="answer">Each team can submit only one idea for the hackathon.</div>
-    </div>
-
-    <div class="faqItem">
-      <div class="question">🏆 What are the prize categories?</div>
-      <div class="answer">There are two categories: Emerging and Software. Each has 1st, 2nd, and 3rd prizes.</div>
-    </div>
-
-    <div class="faqItem">
-      <div class="question">📅 When will the hackathon be held?</div>
-      <div class="answer">The hackathon timeline is available in the Timeline section above.</div>
-    </div>
-  </div>
-</section>
-<!-- Contact Section -->
-<section id="contactSection">
-  <h2 class="sectionTitle">Get in Touch</h2>
-
-  <div class="contactContainer">
-
-    <!-- LEFT : Coordinators -->
-    <div class="contactLeft">
-      <h3 class="contactSubTitle">📌 Student Coordinators</h3>
-
-      <div class="coordinator">
-        <p class="name">S. Devendra Adi Reddy</p>
-        <p>📧 devendra,satti@sasi.ac.in</p>
-        <p>📞 +91 6300214268</p>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
-      <div class="coordinator">
-        <p class="name">S. Revanth Kumar</p>
-        <p>📧 revanth.surisetti@sasi.ac.in</p>
-        <p>📞 +91 9948612380</p>
+      <ul id="navLinks">
+        <li><a href="#introPage">Home</a></li>
+        <li><a href="#bookSection">Book</a></li>
+        <li><a href="#timelineSection">Timeline</a></li>
+        <li><a href="#prizesSection">Prizes</a></li>
+        <li><a href="#faqSection">FAQ</a></li>
+        <li><a href="#contactSection">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="introPage">
+      <img src="logo.png" alt="Hackathon Logo" class="backgroundLogo" />
+      <h1 id="introName">ANVESHANA</h1>
+    </section>
+
+    <!-- Book Section -->
+    <section id="bookSection">
+      <!--
+Source - https://stackoverflow.com/q/38556704
+Posted by marefly, modified by community. See post 'Timeline' for change history
+Retrieved 2026-02-02, License - CC BY-SA 3.0
+-->
+
+      <h1 class="c"><a href="#0">Hackathon</a></h1>
+
+      <div class="bookWrapper">
+        <div class="bookContainer">
+          <!-- BOOK COVER -->
+
+          <div class="book-cover" id="cover">
+            <img src="logo1.png" width="150px" height="100px" /><br />
+            <h1 class="cover-title">HACKATHON 2026</h1>
+            <p class="cover-tagline">Innovate • Build • Compete</p>
+            <br />
+            <button id="openBook">Open Book</button>
+          </div>
+
+          <div class="page" data-page="0">
+            <h2 class="head">About</h2>
+            <p>
+              Anveshana 2026 is a national-level hackathon where innovators come
+              together to build creative tech solutions in domains like AI,
+              Cybersecurity, and Blockchain. It's a platform to collaborate,
+              compete, and showcase your ideas, with guidance from mentors and
+              exciting prizes up for grabs.
+            </p>
+          </div>
+
+          <div class="page" data-page="1">
+            <h2 class="head">Domains</h2>
+            <ul id="domainList">
+              <li>Web Applications</li>
+              <li>Android Applications</li>
+              <li>AI Models</li>
+              <li>Quantum Computing</li>
+              <li>Cybersecurity</li>
+              <li>IoT Systems</li>
+              <li>Blockchains</li>
+              <li>Others</li>
+            </ul>
+          </div>
+          
+          <div class="page" data-page="2">
+            <h2 class="head">Rules</h2>
+            <ul id="domainList1">
+              <li style="color: aliceblue;">Team contains minimun 3 members</li>
+              <li style="color: aliceblue;">No of persons per team wont exceeds 5</li>
+              <li style="color: aliceblue;">Need to follow Timeline</li>
+            </ul>
+          </div>
+
+          <div class="page" data-page="4">
+            <div class="registerBtnWrapper">
+              <a
+                href="https://forms.gle/YOUR_FORM_LINK"
+                target="_blank"
+                id="registerBtn"
+              >
+                Register Now
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+      <div class="bookControls">
+        <button id="prevBtn">Prev</button>
+        <span id="pageIndicator">0 / 4</span>
+        <button id="nextBtn">Next</button>
+      </div>
+    </section>
 
-    <!-- RIGHT : Connect -->
-    <div class="contactRight">
-      <h3 class="contactSubTitle">🚀 Connect With Us</h3>
-      <p class="contactText">
-        Have questions or need help?  
-        Reach out to us anytime — we’re happy to assist you on your innovation journey.
-      </p>
+    <!-- Timeline Section -->
+    <section id="timelineSection">
+      <h1 class="a" style="margin-bottom: 30px; background-color: #040913">
+        <a href="#0">Timeline</a>
+      </h1>
+      <div class="timelineContainer">
+        <div class="timelineItem">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Registration Opens</h3>
+            <p>15th Feb 2026</p>
+          </div>
+        </div>
 
-      <a href="#register" class="registerBtn">Register Now</a>
-    </div>
+        <div class="timelineItem">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Idea Submission</h3>
+            <p>1st March 2026</p>
+          </div>
+        </div>
 
-  </div>
-</section>
+        <div class="timelineItem">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Prelims</h3>
+            <p>15th March 2026</p>
+          </div>
+        </div>
 
-  <script src="script.js"></script>
-</body>
+        <div class="timelineItem">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Finals</h3>
+            <p>31st March 2026</p>
+          </div>
+        </div>
+
+        <div class="timelineItem">
+          <div class="dot"></div>
+          <div class="content">
+            <h3>Winner Announcement</h3>
+            <p>1st April 2026</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Prizes Section -->
+    <section id="prizesSection">
+      <h1 class="b" style="margin-bottom: 30px"><a href="#0">Prizes </a></h1>
+      <div class="prizesContainer">
+        <!-- Emerging Innovators -->
+        <div class="prizeCategory">
+          <h3>Emerging Innovators</h3>
+          <div class="prizeCard gold">
+            <div class="medal">🥇</div>
+            <h4>1st Place</h4>
+            <p>₹25,000/- Cash + Certificate</p>
+          </div>
+          <div class="prizeCard silver">
+            <div class="medal">🥈</div>
+            <h4>2nd Place</h4>
+            <p>₹15,000/- Cash + Certificate</p>
+          </div>
+          <div class="prizeCard bronze">
+            <div class="medal">🥉</div>
+            <h4>3rd Place</h4>
+            <p>₹10,000/- Cash + Certificate</p>
+          </div>
+        </div>
+
+        <!-- Software Wizards -->
+        <div class="prizeCategory">
+          <h3>Software Wizards</h3>
+          <div class="prizeCard gold">
+            <div class="medal">🥇</div>
+            <h4>1st Place</h4>
+            <p>₹25,000/- Cash + Certificate</p>
+          </div>
+          <div class="prizeCard silver">
+            <div class="medal">🥈</div>
+            <h4>2nd Place</h4>
+            <p>₹15,000/- Cash + Certificate</p>
+          </div>
+          <div class="prizeCard bronze">
+            <div class="medal">🥉</div>
+            <h4>3rd Place</h4>
+            <p>₹10,000/- Cash + Certificate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faqSection">
+      <h1 class="c" style="margin-bottom: 30px"><a href="#0">FAQs</a></h1>
+      <div class="faqContainer">
+        <div class="faqItem">
+          <div class="question">📝 What is the team size?</div>
+          <div class="answer">3-5 members per team are allowed.</div>
+        </div>
+
+        <div class="faqItem">
+          <div class="question">
+            💡 Are participants allowed to submit multiple ideas?
+          </div>
+          <div class="answer">
+            Each team can submit only one idea for the hackathon.
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="question">🏆 What are the prize categories?</div>
+          <div class="answer">
+            There are two categories: Emerging and Software. Each has 1st, 2nd,
+            and 3rd prizes.
+          </div>
+        </div>
+
+        <div class="faqItem">
+          <div class="question">📅 When will the hackathon be held?</div>
+          <div class="answer">
+            The hackathon timeline is available in the Timeline section above.
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contactSection">
+      <h1 class="c" style="margin-bottom: 30px"><a href="#0">Contact</a></h1>
+
+      <div class="contactContainer">
+        <!-- LEFT : Coordinators -->
+        <div class="contactLeft">
+          <h3 class="contactSubTitle">📌 Student Coordinators</h3>
+
+          <div class="coordinator">
+            <p class="name">S. Devendra Adi Reddy</p>
+            <p>📧 devendra,satti@sasi.ac.in</p>
+            <p>📞 +91 6300214268</p>
+          </div>
+
+          <div class="coordinator">
+            <p class="name">S. Revanth Kumar</p>
+            <p>📧 revanth.surisetti@sasi.ac.in</p>
+            <p>📞 +91 9948612380</p>
+          </div>
+        </div>
+
+        <!-- RIGHT : Connect -->
+        <div class="contactRight">
+          <h3 class="contactSubTitle">🚀 Connect With Us</h3>
+          <p class="contactText">
+            Have questions or need help? Reach out to us anytime — we’re happy
+            to assist you on your innovation journey.
+          </p>
+
+          <a href="#register" class="registerBtn">Register Now</a>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
 </html>
