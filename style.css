@@ -1189,3 +1189,45 @@ width: 100%;
   letter-spacing: 30px;
   color: white;
 }
+
+
+@media (max-width: 600px) {
+
+  /* ===== COMMON TEXT REDUCTION ===== */
+  .a a,
+  .b a,
+  .c a {
+    padding: 12px;              /* smaller height */
+    letter-spacing: 10px;       /* was 30px */
+    font-size: 30px;            /* reduce text size */
+  }
+
+  /* ===== OUTER CONTAINERS ===== */
+  .a,
+  .b,
+  .c {
+    padding: 1px;
+  }
+
+  /* ===== GLOW BACKGROUND REDUCTION ===== */
+  .a::before,
+  .b::before,
+  .c::before {
+    width: 300px;               /* was 600px */
+    height: 300px;              /* was 600px */
+    margin-left: -150px;
+    margin-top: -150px;
+    top: -20px;
+    background: radial-gradient(
+      50% 50%,
+      ellipse closest-side,
+      #333,
+      black
+    );
+  }
+
+  /* ===== OPTIONAL: REMOVE HEAVY GLOW FOR MOBILE ===== */
+  .c::before {
+    display: none;              /* cleaner mobile look */
+  }
+}
