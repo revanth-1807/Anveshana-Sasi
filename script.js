@@ -199,16 +199,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===== REGISTER BUTTON ===== */
   if (index === 3) {
-    gsap.to("#registerBtn", {
-      scale: 1,
-      opacity: 1,
-      duration: 0.8,
-      ease: "back.out(1.7)",
-      delay: 0.3
-    });
-  } else {
-    gsap.set("#registerBtn", { scale: 0.8, opacity: 0 });
-  }
+  gsap.to("#registerBtn", {
+    scale: 1,
+    opacity: 1,
+    duration: 0.8,
+    ease: "back.out(1.7)",
+    delay: 0.3,
+    pointerEvents: "auto",
+    visibility: "visible"
+  });
+} else {
+  gsap.set("#registerBtn", {
+    scale: 0.8,
+    opacity: 0,
+    pointerEvents: "none",   // ✅ disables click
+    visibility: "hidden"     // ✅ removes from interaction flow
+  });
+}
 
   /* ===== PAGE-SPECIFIC LIST ANIMATIONS ===== */
   requestAnimationFrame(() => {
