@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif; }
 body {
   margin: 0;
@@ -31,9 +33,9 @@ body {
 }
 
 #introName {
-    font-family: 'Pacifico', cursive;
-  font-size:100px;
-  color:#38bdf8;
+  font-family: 'Dancing Script', cursive;
+  font-size:150px;
+  color:#0b6c7d;
   text-shadow:0 0 20px rgba(56,189,248,0.6);
   opacity:0;
 }
@@ -965,7 +967,7 @@ prizeCategory {
 }
 
 .navLogo {
-   font-family: 'Pacifico', cursive;
+  font-family: 'Dancing Script', cursive;
   color: #99afb9;
   font-weight: bold;
   font-size: 18px;
